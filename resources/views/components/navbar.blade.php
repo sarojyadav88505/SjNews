@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="/" style="background: rgb(10, 124, 195)">Home</a>
           </li>
 
           @foreach ($categories as $item)
@@ -21,9 +21,11 @@
               More
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                @foreach ($categories as $index=>$item)
+                @if ($index>11)
+                <li><a class="dropdown-item" href="/category/{{ $item->slug }}">{{ $item->name }}</a></li>
+                @endif
+                @endforeach
             </ul>
           </li>
         </ul>

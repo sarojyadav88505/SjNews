@@ -12,7 +12,7 @@
                             <div class="w-75">
                                <a href="/post/{{ $post->id }}" class="text-decoration-none text-black"> <h1> {{ $post->title }}</h1></a>
                            <h6 class="text-muted"> {{ nepalidate($post->created_at) }}</h6>
-                            <img src="{{ asset($post->image) }}" class="w-100" alt="">
+                            <img src="{{ asset($post->image) }}" class="w-100" alt="{{ $post->image }}">
                             {{-- <br> --}}
                             {{-- {!! $post->description !!} --}}
                             {{-- {!! Str::words($post->description, 20, '...') !!} --}}
@@ -38,7 +38,7 @@
             @foreach ($sectionAds as $index=>$item)
             @if ($index<1)
             <div class="col-md-12">
-                <img src="{{ asset($item->image) }}" class="img-fluid"  alt="">
+               <a href="{{ $item->link }}"> <img src="{{ asset($item->image) }}" class="img-fluid"  alt="{{ $item->title }}"></a>
             </div>
             @endif
             @endforeach
@@ -142,7 +142,7 @@
             @foreach ($sectionAds as $index=>$item)
             @if ($index<2 && $index>0)
             <div class="col-md-12">
-                <img src="{{ asset($item->image) }}" class="img-fluid"  alt="">
+              <a href="{{ $item->link }}"><img src="{{ asset($item->image) }}" class="img-fluid"  alt="{{ $item->title }}"></a>
             </div>
             @endif
             @endforeach
@@ -189,7 +189,7 @@
                     @foreach ($sideAds as $index=>$item)
                     @if ($index>3 && $index<5)
                     <div class="col-md-12 mb-2">
-                        <img src="{{ asset($item->image) }}" class="img-fluid" alt="{{ $item->title }}">
+                        <a href="{{ $item->link }}"><img src="{{ asset($item->image) }}" class="img-fluid" alt="{{ $item->title }}"></a>
                     </div>
                     @endif
                     @endforeach
@@ -249,7 +249,7 @@
                             @foreach ($sectionAds as $index=>$item)
                             @if ($index<3 && $index>1)
                             <div class="col-md-12">
-                                <img src="{{ asset($item->image) }}" class="img-fluid"  alt="">
+                                <a href="{{ $item->link}}"><img src="{{ asset($item->image) }}" class="img-fluid"  alt="{{ $item->title }}"></a>
                             </div>
                             @endif
                             @endforeach
@@ -300,7 +300,8 @@
                 <div class="row">
                     @foreach ($sideAds as $item)
                     <div class="col-md-12 mb-2">
-                        <img src="{{ asset($item->image) }}" class="img-fluid" alt="{{ $item->title }}">
+                       <a href="{{ $item->link }}"> <img src="{{ asset($item->image) }}" class="img-fluid" alt="{{ $item->title }}"></a>
+
                     </div>
                     @endforeach
                 </div>
